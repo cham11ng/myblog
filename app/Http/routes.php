@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/cham11ng', function() {
+   return view('pages.cham11ng'); // resources/views/pages/cham11ng.blade.php
+});
+
+Route::get('/programming', function () {
+    $languages = ['C Programming', 'C++ Programming', 'PHP Programming'];
+    //$languages = [];
+    return view('pages.programming', compact('languages'));
+});
