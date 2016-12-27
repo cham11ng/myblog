@@ -6,7 +6,6 @@ class PagesController extends Controller
 {
     public function home() {
         $languages = ['C Programming', 'C++ Programming', 'PHP Programming'];
-        //$languages = [];
         return view('pages.programming', compact('languages'));
     }
 
