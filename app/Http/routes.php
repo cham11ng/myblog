@@ -16,11 +16,10 @@ Route::get('/', function () {
 });
 
 Route::get('/programming', function () {
-    $languages = ['C Programming', 'C++ Programming', 'PHP Programming'];
-    //$languages = [];
+    $languages = [];
     return view('pages.programming', compact('languages'));
 });
 
-Route::get('pages', 'PagesController@home');
+Route::get('/pages', 'PagesController@home');
 
-Route::get('cham11ng', 'PagesController@cham11ng');
+Route::get('/cham11ng', 'PagesController@cham11ng');
