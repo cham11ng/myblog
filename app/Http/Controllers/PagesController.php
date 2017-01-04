@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 class PagesController extends Controller
 {
     public function home() {
-        $languages = ['C Programming', 'C++ Programming', 'PHP Programming'];
-        return view('pages.programming', compact('languages'));
+        return view('pages.home');
     }
 
-    public function cham11ng() {
-        return view('pages.cham11ng');
+    public function about() {
+		$languages = ['C Programming', 'C++ Programming', 'PHP Programming'];
+        return view('pages.about', compact('languages'));
     }
 }
