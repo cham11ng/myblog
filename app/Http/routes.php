@@ -15,11 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/programming', function () {
+Route::get('/home', 'PagesController@home');
+
+Route::get('/about', 'PagesController@about');
+
+Route::get('/empty', function () {
     $languages = [];
-    return view('pages.programming', compact('languages'));
+    return view('pages.about', compact('languages'));
 });
-
-Route::get('/pages', 'PagesController@home');
-
-Route::get('/cham11ng', 'PagesController@cham11ng');
