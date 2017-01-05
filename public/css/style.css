@@ -16,7 +16,7 @@ body {
     vertical-align: middle;
 }
 
-.content {
+#content {
     text-align: center;
     display: inline-block;
 }
