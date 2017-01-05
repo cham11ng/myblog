@@ -19,3 +19,5 @@ Route::get('/empty', function () {
     $languages = [];
     return view('pages.about', compact('languages'));
 });
+
+Route::get('cards', 'CardsController@index');
