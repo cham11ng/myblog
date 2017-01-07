@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Laravel</title>
+    <title>cham11ng | Laravel 5.2</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     @yield('header')
 </head>
@@ -12,6 +12,11 @@
     </section>
 </main>
 <footer>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="about">About</a></li>
+        <li><a href="cards">Cards</a></li>
+    </ul>
     copyright &copy; cham11ng
 </footer>
 @yield('footer')
