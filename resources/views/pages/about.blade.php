@@ -2,12 +2,13 @@
 
 @section('content')
     @if (empty($languages))
-        <div class="title">No Any Languages Preferred</div>
+        <header class="title">No Any Languages Preferred</header>
     @else
-        <div class="title">Something Else Here</div>
+        <header class="title">About Some Languages</header>
     @endif
-
-    @foreach ($languages as $language)
-    <li>{{ $language }}</li>
-    @endforeach
+    <ul>
+        @foreach ($languages as $language)
+        <li>{{ $language }}</li>
+        @endforeach
+    </ul>
 @stop
