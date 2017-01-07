@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>cham11ng | Laravel 5.2</title>
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     @yield('header')
 </head>
