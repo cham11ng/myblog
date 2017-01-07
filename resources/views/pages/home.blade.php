@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <div class="title">Life just move on</div>
+    <header class="title">Life Move On</header>
+    <section>Follow Life</section>
 @stop
 
