@@ -20,4 +20,4 @@ Route::get('/empty', function () {
     return view('pages.about', compact('languages'));
 });
 
-Route::get('cards', 'CardsController@index');
+Route::get('cards', 'CardsController@cards');
