@@ -4,7 +4,7 @@
     <title>cham11ng | Laravel 5.2</title>
     <link rel="stylesheet" type="text/css" href="/css/app.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-    @yield('header')
+    @yield('stylesheets')
 </head>
 <body>
 <main class="container">
@@ -20,6 +20,6 @@
     </ul>
     copyright &copy; cham11ng
 </footer>
-@yield('footer')
+@yield('scripts')
 </body>
 </html>
