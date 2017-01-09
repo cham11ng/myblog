@@ -2,7 +2,7 @@
 
 This is my first laravel project where I am learning with the help of Laracasts.
 
-Installation:
+###Installation:
 
 `git clone` this repository and `cd` inside the project root, then enter the following commands
 
