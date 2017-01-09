@@ -15,9 +15,15 @@ Route::get('/', 'PagesController@getHome');
 
 Route::get('/about', 'PagesController@getAbout');
 
+Route::get('/contact', 'PagesController@getContact');
+
 Route::get('/empty', function () {
     $languages = [];
     return view('pages.about', compact('languages'));
 });
 
 Route::get('cards', 'CardsController@getCards');
+
+Route::get('error', function () {
+    return view('errors.503');
+});
