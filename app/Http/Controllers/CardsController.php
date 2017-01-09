@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
+use App\Card;
 
 class CardsController extends Controller
 {
     public function getCards() {
-        return view('cards.cards');
+        $cards = Card::all();
+        return view('cards.cards', compact('cards'));
+    }
+
+    public function showCard($card_slug) {
+        $card = Card::where('card_slug', '=', $card_slug)->first();
+        //return $card; // json
+        return view('cards.show', compact('card'));
     }
 }
