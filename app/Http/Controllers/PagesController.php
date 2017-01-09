@@ -12,4 +12,8 @@ class PagesController extends Controller
 		$languages = ['C Programming', 'C++ Programming', 'PHP Programming'];
         return view('pages.about', compact('languages'));
     }
+
+    public function getContact() {
+        return view('pages.contact');
+    }
 }
