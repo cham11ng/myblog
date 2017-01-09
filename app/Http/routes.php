@@ -24,6 +24,8 @@ Route::get('/empty', function () {
 
 Route::get('cards', 'CardsController@getCards');
 
+Route::get('card/{card_slug}', 'CardsController@showCard');
+
 Route::get('error', function () {
     return view('errors.503');
 });
