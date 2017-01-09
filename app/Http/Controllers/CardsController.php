@@ -8,7 +8,7 @@ use App\Http\Requests;
 
 class CardsController extends Controller
 {
-    public function cards() {
+    public function getCards() {
         return view('cards.cards');
     }
 }

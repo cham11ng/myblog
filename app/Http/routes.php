@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/', 'PagesController@home');
+Route::get('/', 'PagesController@getHome');
 
-Route::get('/about', 'PagesController@about');
+Route::get('/about', 'PagesController@getAbout');
 
 Route::get('/empty', function () {
     $languages = [];
     return view('pages.about', compact('languages'));
 });
 
-Route::get('cards', 'CardsController@cards');
+Route::get('cards', 'CardsController@getCards');
