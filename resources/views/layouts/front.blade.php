@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="/css/animate/animate.min.css">
 
-    <!-- External Stylesheets -->
+    <!-- Custom Stylesheets -->
+    <link rel="stylesheet" href="/css/style.css">
     @yield('stylesheets')
 </head>
 
