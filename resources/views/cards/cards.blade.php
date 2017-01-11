@@ -6,9 +6,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">All Cards</div>
                 <div class="panel-body">
-                    <ul>
+                    <ul class="list-group card-list">
                         @foreach ($cards as $card)
-                            <li><a href="{{ url('/card/'.$card->card_slug) }}">{{ $card->card_title }}</a></li>
+                            <li class="list-group-item"><a href="{{ url('/card/'.$card->card_slug) }}">{{ $card->card_title }}</a></li>
                         @endforeach
                     </ul>
                 </div>
