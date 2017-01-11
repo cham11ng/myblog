@@ -8,13 +8,10 @@
     <title>cham11ng @yield('title')</title>
     <!-- CHANGE THIS TITLE FOR EACH PAGE -->
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/animate/animate.min.css">
+    <!-- Bootstrap/Animate/Fontawesome -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
 
     <!-- Custom Stylesheets -->
     <link rel="stylesheet" href="/css/style.css">
@@ -45,17 +42,17 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="{{ url('/about') }}">about</a></li>
-                <li><a href="{{ url('/cards') }}">cards</a></li>
+                <li><a href="{{ url('/about') }}"><i class="fa fa-btn fa-info"></i>&nbsp;about</a></li>
+                <li><a href="{{ url('/cards') }}"><i class="fa fa-btn fa-credit-card"></i>&nbsp;cards</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">login</a></li>
-                    <li><a href="{{ url('/register') }}">register</a></li>
-                    <li><a href="{{ url('/contact') }}">contact</a></li>
+                    <li><a href="{{ url('/login') }}"><i class="fa fa-btn fa-sign-in"></i>&nbsp;login</a></li>
+                    <li><a href="{{ url('/register') }}"><i class="fa fa-btn fa-user"></i>&nbsp;register</a></li>
+                    <li><a href="{{ url('/contact') }}"><i class="fa fa-btn fa-share-alt"></i>&nbsp;contact</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -80,10 +77,10 @@
 </footer>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="/js/jquery/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/js/bootstrap/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
