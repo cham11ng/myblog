@@ -43,7 +43,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 <li><a href="{{ url('/about') }}"><i class="fa fa-btn fa-info"></i>&nbsp;about</a></li>
-                <li><a href="{{ url('/cards') }}"><i class="fa fa-btn fa-credit-card"></i>&nbsp;cards</a></li>
+                <li><a href="{{ url('/cards') }}"><i class="fa fa-btn fa-id-card"></i>&nbsp;cards</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -52,7 +52,7 @@
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}"><i class="fa fa-btn fa-sign-in"></i>&nbsp;login</a></li>
                     <li><a href="{{ url('/register') }}"><i class="fa fa-btn fa-user"></i>&nbsp;register</a></li>
-                    <li><a href="{{ url('/contact') }}"><i class="fa fa-btn fa-share-alt"></i>&nbsp;contact</a></li>
+                    <li><a href="{{ url('/contact') }}"><i class="fa fa-btn fa-phone"></i>&nbsp;contact</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
