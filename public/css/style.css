@@ -1,32 +1,31 @@
+@font-face {
+    font-family: 'Lato-Regular';
+    src: url('../fonts/Lato-Regular.eot');
+    src: url('../fonts/Lato-Regular.woff') format('woff'), url('../fonts/Lato-Regular.ttf') format('truetype');
+}
+
 body {
     padding: 0;
+    margin: 0;
     width: 100%;
     height: 100%;
-    margin: auto 0;
-    font-family: 'Lato';
+    font-family: 'Lato-Regular';
 }
 
-main {
-    text-align: center;
+p {
+    text-align: justify;
 }
 
-section {
-    padding: 20px 0;
-    font-size: 16pt;
-}
-
-ul {
+ul.card-list, ul.note-list {
     list-style: none;
-    margin: 20px 0;
+    margin: 0;
     padding: 0;
 }
 
-.title {
+ul.card-list {
     text-align: center;
-    font-size: 30pt;
-    font-weight: bold;
 }
 
-footer {
-    text-align: center;
+ul.note-list {
+
 }
