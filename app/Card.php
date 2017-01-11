@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Card extends Model
 {
+    protected $fillable = ['card_title', 'card_slug'];
     public function notes() {
         return $this->hasMany(Note::class, 'card_id', 'card_id');
     }
