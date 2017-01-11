@@ -14,6 +14,6 @@ class CardsController extends Controller
     public function showCard($card_slug) {
         $card = Card::where('card_slug', '=', $card_slug)->first();
         //return $card; // json
-        return view('cards.show', compact('card'));
+        return view('cards.notes', compact('card'));
     }
 }
