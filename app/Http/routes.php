@@ -26,6 +26,8 @@ Route::get('cards', 'CardsController@getCards');
 
 Route::get('card/{card_slug}', 'CardsController@showCard');
 
+Route::post('card/{card_slug}/add_note', 'NotesController@storeNote');
+
 Route::get('error', function () {
     return view('errors.503');
 });
