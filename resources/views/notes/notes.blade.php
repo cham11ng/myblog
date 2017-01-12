@@ -11,10 +11,11 @@
         @forelse ($card->notes as $note)
             <li class="list-group-item animated bounceInDown">
                 <div class="row">
-                    <div class="col-md-10">{{ $note->note_content }}</div>
-                    <div class="col-md-2 text-right">
-                        <a href="{{ url('note/'.$note->note_id.'/edit') }}"><i class="fa fa-btn fa-edit text-info"></i></a>
-                        <a href="{{ url('note/'.$note->note_id.'/delete') }}"><i class="fa fa-btn fa-trash-o text-danger"></i></a>
+                    <div class="col-md-9 text-justify">{{ $note->note_content }}</div>
+                    <div class="col-md-3 text-right">
+                        <em>By: {{ $note->user->username }}&nbsp;</em>
+                        <a href="{{ url('note/'.$note->id.'/edit') }}"><i class="fa fa-btn fa-edit text-info"></i></a>
+                        <a href="{{ url('note/'.$note->id.'/delete') }}"><i class="fa fa-btn fa-trash-o text-danger"></i></a>
                     </div>
                 </div>
             </li>
@@ -28,7 +29,8 @@
 
     <hr />
     <form method="POST" action="/card/{{ $card->card_slug }}/add_note" class="form-horizontal" role="form">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+        <input type="hidden" name="user_id" value="1" />
         <div class="form-group{{ $errors->has('note_content') ? ' has-error' : '' }}">
             <label for="note_content" class="col-md-4 control-label">New Note:</label>
             <div class="col-md-6">
