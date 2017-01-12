@@ -19,7 +19,7 @@ class Card extends Model
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function notes() {
-        return $this->hasMany(Note::class, 'card_id', 'card_id');
+        return $this->hasMany(Note::class);
     }
 
     /**
