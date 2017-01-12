@@ -31,44 +31,46 @@ class NotesController extends Controller
         /**
          * Explicit Method
          */
-        $card->addNote(new Note([
-            'note_content' => $request->note_content
-        ]));
+        $card->addNote(
+            new Note([
+                'note_content'  => $request->note_content,
+                'user_id'       => $request->user_id
+            ]));
 
         return back();
     }
 
     /**
-     * @param $note_id
+     * @param Note $note
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * EditNote identified by$note_id View Page
      */
-    public function editNote($note_id) {
-        $note = Note::where('note_id', '=', $note_id)->with('card')->first();
+    public function editNote(Note $note) {
+        $note->first()->load('card');
 
         return view('notes.edit_note', compact('note'));
     }
 
     /**
      * @param Request $request
-     * @param $note_id
+     * @param Note $note
      * @return \Illuminate\Http\RedirectResponse
      * Notes Update Patch
      */
-    public function updateNote(Request $request, $note_id) {
-        Note::where('note_id', '=', $note_id)
-            ->update(['note_content' => $request->note_content]);
+    public function updateNote(Request $request, Note $note) {
+        $note->update([
+                'note_content'  => $request->note_content
+            ]);
 
         return back();
     }
 
     /**
-     * @param $note_id
+     * @param Note $note
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function deleteNote($note_id) {
-        Note::where('note_id', '', $note_id)
-            ->delete();
+    public function deleteNote(Note $note) {
+        $note->delete();
 
         return back();
     }
