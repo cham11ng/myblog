@@ -7,7 +7,7 @@
 @stop
 
 @section('panel-body')
-    <form method="POST" action="/note/{{ $note->note_id }}" class="form-horizontal" role="form">
+    <form method="POST" action="/note/{{ $note->id }}" class="form-horizontal" role="form">
         {{ method_field('PATCH') }}
         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
         <div class="form-group{{ $errors->has('note_content') ? ' has-error' : '' }}">
