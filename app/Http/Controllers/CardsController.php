@@ -25,8 +25,9 @@ class CardsController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * Showing notes that belongs to $card_slug
      */
-    public function showCard($card_slug) {
+    public function showNotes($card_slug) {
         $card = Card::where('card_slug', '=', $card_slug)->first();
+        $card->load('notes.user');
         //return $card; // json
         return view('notes.notes', compact('card'));
     }
