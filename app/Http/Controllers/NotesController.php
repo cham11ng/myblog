@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Note;
 use App\Card;
 
+/**
+ * Class NotesController
+ * @package App\Http\Controllers
+ */
 class NotesController extends Controller
 {
     /**

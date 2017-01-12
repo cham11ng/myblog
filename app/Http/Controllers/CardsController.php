@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Card;
 use Illuminate\Http\Request;
 
+/**
+ * Class CardsController
+ * @package App\Http\Controllers
+ */
 class CardsController extends Controller
 {
     /**
