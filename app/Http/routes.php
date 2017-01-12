@@ -22,7 +22,7 @@ Route::get('/contact', 'PagesController@getContact');
  * CardsController
  */
 Route::get('/cards', 'CardsController@getCards');
-Route::get('/card/{card_slug}/notes', 'CardsController@showCard');
+Route::get('/card/{card_slug}/notes', 'CardsController@showNotes');
 
 Route::post('/card/add_card', 'CardsController@storeCard');
 
@@ -36,10 +36,10 @@ Route::post('/card/{card_slug}/add_note', 'NotesController@storeNote');
 /**
  * NotesController
  */
-Route::get('/note/{note_id}/edit', 'NotesController@editNote');
-Route::patch('/note/{note_id}', 'NotesController@updateNote');
+Route::get('/note/{note}/edit', 'NotesController@editNote');
+Route::patch('/note/{note}', 'NotesController@updateNote');
 
-Route::delete('/note/{note_id}/delete', 'NotesController@deleteNote');
+Route::delete('/note/{note}/delete', 'NotesController@deleteNote');
 
 /**
  * Error Page
