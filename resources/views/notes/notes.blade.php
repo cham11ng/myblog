@@ -30,7 +30,6 @@
     <hr />
     <form method="POST" action="/card/{{ $card->card_slug }}/add_note" class="form-horizontal" role="form">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-        <input type="hidden" name="user_id" value="1" />
         <div class="form-group{{ $errors->has('note_content') ? ' has-error' : '' }}">
             <label for="note_content" class="col-md-4 control-label">New Note:</label>
             <div class="col-md-6">
