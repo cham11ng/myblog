@@ -31,11 +31,10 @@ class NotesController extends Controller
         /**
          * Explicit Method
          */
-        $card->addNote(
-            new Note([
-                'note_content'  => $request->note_content,
-                'user_id'       => $request->user_id
-            ]));
+        $note = new Note([
+            'note_content'  => $request->note_content,
+        ]);
+        $card->addNote($note, 1);
 
         return back();
     }
