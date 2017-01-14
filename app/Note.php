@@ -13,7 +13,7 @@ class Note extends Model
     /**
      * @var array
      */
-    protected $fillable = ['note_content', 'user_id'];
+    protected $fillable = ['note_content'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -22,6 +22,9 @@ class Note extends Model
         return $this->belongsTo(Card::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user() {
         return $this->belongsTo(User::class);
     }
