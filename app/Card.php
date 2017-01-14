@@ -26,7 +26,8 @@ class Card extends Model
      * @param Note $note
      * @return Model
      */
-    public function addNote(Note $note) {
+    public function addNote(Note $note, $userId) {
+        $note->user_id = $userId;
         return $this->notes()->save($note);
     }
 }
