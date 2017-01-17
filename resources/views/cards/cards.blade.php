@@ -12,8 +12,12 @@
                 <div class="row">
                     <div class="col-md-10"><a href="{{ url('/card/'.$card->card_slug.'/notes') }}">{{ $card->card_title }}</a></div>
                     <div class="col-md-2 text-right">
-                        <a href="{{ url('/card/'.$card->card_slug.'/edit') }}"><i class="fa fa-btn fa-edit text-info"></i></a>
-                        <a href="{{ url('/card/'.$card->card_slug.'/delete') }}"><i class="fa fa-btn fa-trash-o text-danger"></i></a>
+                        <form method="POST" action="{{ url('/card/'.$card->card_slug.'/delete') }}">
+                            {{ method_field('DELETE') }}
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+                            <a href="{{ url('/card/'.$card->card_slug.'/edit') }}"><i class="fa fa-btn fa-edit text-info"></i></a>
+                            <button class="button-icon" type="submit"><i class="fa fa-btn fa-trash-o text-danger"></i></button>
+                        </form>
                     </div>
                 </div>
             </li>
