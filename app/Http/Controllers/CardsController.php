@@ -15,7 +15,8 @@ class CardsController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * Listing all cards to view
      */
-    public function getCards() {
+    public function getCards()
+    {
         $cards = Card::all();
         return view('cards.cards', compact('cards'));
     }
@@ -25,7 +26,8 @@ class CardsController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * Showing notes that belongs to $card_slug
      */
-    public function showNotes($card_slug) {
+    public function showNotes($card_slug)
+    {
         $card = Card::where('card_slug', '=', $card_slug)->first();
         $card->load('notes.user');
         //return $card; // json
@@ -37,7 +39,8 @@ class CardsController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      * Create new Card
      */
-    public function storeCard(Request $request) {
+    public function storeCard(Request $request)
+    {
         Card::create([
             'card_title'    => $request->card_title,
             'card_slug'     => str_slug($request->card_title, '-')
@@ -51,7 +54,8 @@ class CardsController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * Edit Card view that belongs to $card_slug
      */
-    public function editCard($card_slug) {
+    public function editCard($card_slug)
+    {
         $card = Card::where('card_slug', '=', $card_slug)->first();
 
         return view('cards.edit_card', compact('card'));
@@ -63,7 +67,8 @@ class CardsController extends Controller
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      * Card Update Patch
      */
-    public function updateCard(Request $request, $card_slug) {
+    public function updateCard(Request $request, $card_slug)
+    {
         Card::where('card_slug', '=', $card_slug)
             ->update([
                 'card_title'    => $request->card_title,
@@ -77,7 +82,8 @@ class CardsController extends Controller
      * @param $card_slug
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function deleteCard($card_slug) {
+    public function deleteCard($card_slug)
+    {
         Card::where('card_slug', '=', $card_slug)
             ->delete();
 

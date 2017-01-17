@@ -18,7 +18,8 @@ class Card extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function notes() {
+    public function notes()
+    {
         return $this->hasMany(Note::class);
     }
 
@@ -26,7 +27,8 @@ class Card extends Model
      * @param Note $note
      * @return Model
      */
-    public function addNote(Note $note, $userId) {
+    public function addNote(Note $note, $userId)
+    {
         $note->user_id = $userId;
         return $this->notes()->save($note);
     }

@@ -24,7 +24,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function notes() {
+    public function notes()
+    {
         return $this->hasMany(Note::class);
     }
 }
