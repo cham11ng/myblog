@@ -78,7 +78,7 @@ class CardsController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function deleteCard($card_slug) {
-        Card::where('card_slug', '', $card_slug)
+        Card::where('card_slug', '=', $card_slug)
             ->delete();
 
         return back();
