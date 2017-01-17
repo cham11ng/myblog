@@ -29,3 +29,10 @@ ul.card-list {
 ul.note-list {
 
 }
+
+button.button-icon {
+    border: transparent;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+}
