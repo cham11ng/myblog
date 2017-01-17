@@ -14,7 +14,7 @@
                     <div class="col-md-2 text-right">
                         <form method="POST" action="{{ url('/card/'.$card->card_slug.'/delete') }}">
                             {{ method_field('DELETE') }}
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+                            {{ csrf_field() }}
                             <a href="{{ url('/card/'.$card->card_slug.'/edit') }}"><i class="fa fa-btn fa-edit text-info"></i></a>
                             <button class="button-icon" type="submit"><i class="fa fa-btn fa-trash-o text-danger"></i></button>
                         </form>
@@ -31,7 +31,7 @@
 
     <hr />
     <form method="POST" action="/card/add_card" class="form-horizontal" role="form">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+        {{ csrf_field() }}
         <div class="form-group{{ $errors->has('card_title') ? ' has-error' : '' }}">
             <label for="card_title" class="col-md-4 control-label">New Card:</label>
             <div class="col-md-6">

@@ -11,7 +11,7 @@
 @section('panel-body')
     <form method="POST" action="/card/{{ $card->card_slug }}" class="form-horizontal" role="form">
         {{ method_field('PATCH') }}
-        <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+        {{ csrf_field() }}
         <div class="form-group{{ $errors->has('card_title') ? ' has-error' : '' }}">
             <label for="card_title" class="col-md-4 control-label">Edit card:</label>
             <div class="col-md-6">

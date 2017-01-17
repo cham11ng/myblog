@@ -15,7 +15,7 @@
                     <div class="col-md-3 text-right">
                         <form method="POST" action="{{ url('note/'.$note->id.'/delete') }}">
                             {{ method_field('DELETE') }}
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+                            {{ csrf_field() }}
                             <em>By: {{ $note->user->username }}&nbsp;</em>
                             <a href="{{ url('note/'.$note->id.'/edit') }}"><i class="fa fa-btn fa-edit text-info"></i></a>
                             <button class="button-icon" type="submit"><i class="fa fa-btn fa-trash-o text-danger"></i></button>
@@ -33,7 +33,7 @@
 
     <hr />
     <form method="POST" action="/card/{{ $card->card_slug }}/add_note" class="form-horizontal" role="form">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+        {{ csrf_field() }}
         <div class="form-group{{ $errors->has('note_content') ? ' has-error' : '' }}">
             <label for="note_content" class="col-md-4 control-label">New Note:</label>
             <div class="col-md-6">

@@ -9,7 +9,7 @@
 @section('panel-body')
     <form method="POST" action="/note/{{ $note->id }}" class="form-horizontal" role="form">
         {{ method_field('PATCH') }}
-        <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+        {{ csrf_field() }}
         <div class="form-group{{ $errors->has('note_content') ? ' has-error' : '' }}">
             <label for="note_content" class="col-md-4 control-label">Edit Note:</label>
             <div class="col-md-6">
