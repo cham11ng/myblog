@@ -11,39 +11,41 @@
 |
 */
 
-/**
- * Pages Controller
- */
-Route::get('/', 'PagesController@getHome');
-Route::get('/about', 'PagesController@getAbout');
-Route::get('/contact', 'PagesController@getContact');
+Route::group(['middleware'  => ['web']], function (){
+    /**
+     * Pages Controller
+     */
+    Route::get('/', 'PagesController@getHome');
+    Route::get('/about', 'PagesController@getAbout');
+    Route::get('/contact', 'PagesController@getContact');
 
-/**
- * CardsController
- */
-Route::get('/cards', 'CardsController@getCards');
-Route::get('/card/{card_slug}/notes', 'CardsController@showNotes');
+    /**
+     * CardsController
+     */
+    Route::get('/cards', 'CardsController@getCards');
+    Route::get('/card/{card_slug}/notes', 'CardsController@showNotes');
 
-Route::post('/card/add_card', 'CardsController@storeCard');
+    Route::post('/card/add_card', 'CardsController@storeCard');
 
-Route::get('/card/{card_slug}/edit', 'CardsController@editCard');
-Route::patch('/card/{card_slug}', 'CardsController@updateCard');
+    Route::get('/card/{card_slug}/edit', 'CardsController@editCard');
+    Route::patch('/card/{card_slug}', 'CardsController@updateCard');
 
-Route::delete('/card/{card_slug}/delete', 'CardsController@deleteCard');
+    Route::delete('/card/{card_slug}/delete', 'CardsController@deleteCard');
 
-Route::post('/card/{card_slug}/add_note', 'NotesController@storeNote');
+    Route::post('/card/{card_slug}/add_note', 'NotesController@storeNote');
 
-/**
- * NotesController
- */
-Route::get('/note/{note}/edit', 'NotesController@editNote');
-Route::patch('/note/{note}', 'NotesController@updateNote');
+    /**
+     * NotesController
+     */
+    Route::get('/note/{note}/edit', 'NotesController@editNote');
+    Route::patch('/note/{note}', 'NotesController@updateNote');
 
-Route::delete('/note/{note}/delete', 'NotesController@deleteNote');
+    Route::delete('/note/{note}/delete', 'NotesController@deleteNote');
 
-/**
- * Error Page
- */
-Route::get('error', function () {
-    return view('errors.503');
+    /**
+     * Error Page
+     */
+    Route::get('error', function () {
+        return view('errors.503');
+    });
 });
