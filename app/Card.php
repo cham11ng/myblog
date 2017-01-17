@@ -32,4 +32,9 @@ class Card extends Model
         $note->user_id = $userId;
         return $this->notes()->save($note);
     }
+
+    public function deleteNotes()
+    {
+        return $this->notes()->delete();
+    }
 }

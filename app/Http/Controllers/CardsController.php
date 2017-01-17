@@ -84,8 +84,12 @@ class CardsController extends Controller
      */
     public function deleteCard($card_slug)
     {
-        Card::where('card_slug', '=', $card_slug)
-            ->delete();
+        /*Card::where('card_slug', '=', $card_slug)
+            ->delete();*/
+        $card = Card::where('card_slug', '=', $card_slug)->first();
+
+        $card->delete();
+        $card->deleteNotes();   // delete all notes of respective card
 
         return back();
     }
