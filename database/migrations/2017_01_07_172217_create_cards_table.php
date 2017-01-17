@@ -17,6 +17,7 @@ class CreateCardsTable extends Migration
             $table->string('card_title')->unique();
             $table->string('card_slug')->unique();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
