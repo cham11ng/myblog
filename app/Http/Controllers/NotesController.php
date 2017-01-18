@@ -33,13 +33,10 @@ class NotesController extends Controller
          * Explicit Method
          */
         $this->validate($request, [
-           'body'   => 'required|min:2'
+            'body'   => 'required|min:10'
         ]);
 
-        $note = new Note([
-            'body'   => $request->body
-        ]);
-        $card->addNote($note, 1);
+        $card->addNote($request->all(), 1);
 
         return back();
     }
@@ -64,9 +61,11 @@ class NotesController extends Controller
      */
     public function updateNote(Request $request, Note $note)
     {
-        $note->update([
-                'body'  => $request->body
-            ]);
+        $this->validate($request, [
+            'body'   => 'required|min:10'
+        ]);
+
+        $note->update($request->all());
 
         return back();
     }
