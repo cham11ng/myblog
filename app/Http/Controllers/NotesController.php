@@ -14,26 +14,30 @@ class NotesController extends Controller
 {
     /**
      * @param Request $request
-     * @param $card_slug
+     * @param $slug
      * @return \Illuminate\Http\RedirectResponse
-     * Adding Notes to Card identified by $card_slug
+     * Adding Notes to Card identified by $slug
      */
-    public function storeNote(Request $request, $card_slug)
+    public function storeNote(Request $request, $slug)
     {
-        $card = Card::where('card_slug', '=', $card_slug)->first();
+        $card = Card::where('slug', '=', $slug)->first();
 
         /**
          * Implicit Method
          */
         /*$card->notes()->create([
-            'note_content'  => $request->note_content
+            'content'  => $request->content
         ]);*/
 
         /**
          * Explicit Method
          */
+        $this->validate($request, [
+           'content'   => 'required|min:2'
+        ]);
+
         $note = new Note([
-            'note_content'  => $request->note_content,
+            'content'   => $request->content,
         ]);
         $card->addNote($note, 1);
 
@@ -43,7 +47,7 @@ class NotesController extends Controller
     /**
      * @param Note $note
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * EditNote identified by$note_id View Page
+     * EditNote identified by $id View Page
      */
     public function editNote(Note $note)
     {
@@ -61,7 +65,7 @@ class NotesController extends Controller
     public function updateNote(Request $request, Note $note)
     {
         $note->update([
-                'note_content'  => $request->note_content
+                'content'  => $request->content
             ]);
 
         return back();

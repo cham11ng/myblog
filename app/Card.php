@@ -23,7 +23,7 @@ class Card extends Model
     /**
      * @var array
      */
-    protected $fillable = ['card_title', 'card_slug'];
+    protected $fillable = ['title', 'slug'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

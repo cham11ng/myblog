@@ -23,7 +23,7 @@ class Note extends Model
     /**
      * @var array
      */
-    protected $fillable = ['note_content'];
+    protected $fillable = ['content'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

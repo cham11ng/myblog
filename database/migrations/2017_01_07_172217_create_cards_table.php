@@ -14,8 +14,8 @@ class CreateCardsTable extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('card_title')->unique();
-            $table->string('card_slug')->unique();
+            $table->string('title')->unique();
+            $table->string('slug')->unique();
             $table->timestamps();
             $table->softDeletes();
         });

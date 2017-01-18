@@ -10,12 +10,12 @@
         @forelse ($cards as $card)
             <li class="list-group-item">
                 <div class="row">
-                    <div class="col-md-10"><a href="{{ url('/card/'.$card->card_slug.'/notes') }}">{{ $card->card_title }}</a></div>
+                    <div class="col-md-10"><a href="{{ url('/card/'.$card->slug.'/notes') }}">{{ $card->title }}</a></div>
                     <div class="col-md-2 text-right">
-                        <form method="POST" action="{{ url('/card/'.$card->card_slug.'/delete') }}">
+                        <form method="POST" action="{{ url('/card/'.$card->slug.'/delete') }}">
                             {{ method_field('DELETE') }}
                             {{ csrf_field() }}
-                            <a href="{{ url('/card/'.$card->card_slug.'/edit') }}"><i class="fa fa-btn fa-edit text-info"></i></a>
+                            <a href="{{ url('/card/'.$card->slug.'/edit') }}"><i class="fa fa-btn fa-edit text-info"></i></a>
                             <button class="button-icon" type="submit"><i class="fa fa-btn fa-trash-o text-danger"></i></button>
                         </form>
                     </div>
@@ -32,13 +32,13 @@
     <hr />
     <form method="POST" action="/card/add_card" class="form-horizontal" role="form">
         {{ csrf_field() }}
-        <div class="form-group{{ $errors->has('card_title') ? ' has-error' : '' }}">
-            <label for="card_title" class="col-md-4 control-label">New Card:</label>
+        <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
+            <label for="title" class="col-md-4 control-label">New Card:</label>
             <div class="col-md-6">
-                <input name="card_title" id="card_title" class="form-control" placeholder="Type title of card ..." value="{{ old('card_title') }}" />
-                @if ($errors->has('card_title'))
+                <input name="title" id="title" class="form-control" placeholder="Type title of card ..." value="{{ old('title') }}" />
+                @if ($errors->has('title'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('card_title') }}</strong>
+                        <strong>{{ $errors->first('title') }}</strong>
                     </span>
                 @endif
             </div>

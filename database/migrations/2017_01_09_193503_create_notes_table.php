@@ -16,7 +16,7 @@ class CreateNotesTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
             $table->integer('card_id')->unsigned()->index();
-            $table->text('note_content');
+            $table->text('content');
             $table->timestamps();
             $table->softDeletes();
         });

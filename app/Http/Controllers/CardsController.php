@@ -22,13 +22,13 @@ class CardsController extends Controller
     }
 
     /**
-     * @param $card_slug
+     * @param $slug
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * Showing notes that belongs to $card_slug
+     * Showing notes that belongs to $slug
      */
-    public function showNotes($card_slug)
+    public function showNotes($slug)
     {
-        $card = Card::where('card_slug', '=', $card_slug)->first();
+        $card = Card::where('slug', '=', $slug)->first();
         $card->load('notes.user');
         //return $card; // json
         return view('notes.notes', compact('card'));
@@ -42,51 +42,51 @@ class CardsController extends Controller
     public function storeCard(Request $request)
     {
         Card::create([
-            'card_title'    => $request->card_title,
-            'card_slug'     => str_slug($request->card_title, '-')
+            'title'    => $request->title,
+            'slug'     => str_slug($request->title, '-')
         ]);
 
         return back();
     }
 
     /**
-     * @param $card_slug
+     * @param $slug
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * Edit Card view that belongs to $card_slug
+     * Edit Card view that belongs to $slug
      */
-    public function editCard($card_slug)
+    public function editCard($slug)
     {
-        $card = Card::where('card_slug', '=', $card_slug)->first();
+        $card = Card::where('slug', '=', $slug)->first();
 
         return view('cards.edit_card', compact('card'));
     }
 
     /**
      * @param Request $request
-     * @param $card_slug
+     * @param $slug
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      * Card Update Patch
      */
-    public function updateCard(Request $request, $card_slug)
+    public function updateCard(Request $request, $slug)
     {
-        Card::where('card_slug', '=', $card_slug)
+        Card::where('slug', '=', $slug)
             ->update([
-                'card_title'    => $request->card_title,
-                'card_slug'     => str_slug($request->card_title)
+                'title'    => $request->title,
+                'slug'     => str_slug($request->title)
             ]);
 
-        return redirect('/card/'.str_slug($request->card_title).'/edit');
+        return redirect('/card/'.str_slug($request->title).'/edit');
     }
 
     /**
-     * @param $card_slug
+     * @param $slug
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function deleteCard($card_slug)
+    public function deleteCard($slug)
     {
-        /*Card::where('card_slug', '=', $card_slug)
+        /*Card::where('slug', '=', $slug)
             ->delete();*/
-        $card = Card::where('card_slug', '=', $card_slug)->first();
+        $card = Card::where('slug', '=', $slug)->first();
 
         $card->delete();
         $card->deleteNotes();   // delete all notes of respective card
