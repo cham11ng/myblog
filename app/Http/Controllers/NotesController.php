@@ -26,18 +26,18 @@ class NotesController extends Controller
          * Implicit Method
          */
         /*$card->notes()->create([
-            'content'  => $request->content
+            'body'  => $request->body
         ]);*/
 
         /**
          * Explicit Method
          */
         $this->validate($request, [
-           'content'   => 'required|min:2'
+           'body'   => 'required|min:2'
         ]);
 
         $note = new Note([
-            'content'   => $request->content,
+            'body'   => $request->body
         ]);
         $card->addNote($note, 1);
 
@@ -65,7 +65,7 @@ class NotesController extends Controller
     public function updateNote(Request $request, Note $note)
     {
         $note->update([
-                'content'  => $request->content
+                'body'  => $request->body
             ]);
 
         return back();

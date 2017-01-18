@@ -11,7 +11,7 @@
         @forelse ($card->notes as $note)
             <li class="list-group-item animated bounceInDown">
                 <div class="row">
-                    <div class="col-md-9 text-justify">{{ $note->content }}</div>
+                    <div class="col-md-9 text-justify">{{ $note->body }}</div>
                     <div class="col-md-3 text-right">
                         <form method="POST" action="{{ url('note/'.$note->id.'/delete') }}">
                             {{ method_field('DELETE') }}
@@ -34,13 +34,13 @@
     <hr />
     <form method="POST" action="/card/{{ $card->slug }}/add_note" class="form-horizontal" role="form">
         {{ csrf_field() }}
-        <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
-            <label for="content" class="col-md-4 control-label">New Note:</label>
+        <div class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">
+            <label for="body" class="col-md-4 control-label">New Note:</label>
             <div class="col-md-6">
-                <textarea name="content" id="content" class="form-control" placeholder="Type note about a card {{ $card->title }} ...">{{ old('content') }}</textarea>
-                @if ($errors->has('content'))
+                <textarea name="body" id="body" class="form-control" placeholder="Type note about a card {{ $card->title }} ...">{{ old('body') }}</textarea>
+                @if ($errors->has('body'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('content') }}</strong>
+                        <strong>{{ $errors->first('body') }}</strong>
                     </span>
                 @endif
             </div>

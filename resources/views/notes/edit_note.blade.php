@@ -10,13 +10,13 @@
     <form method="POST" action="/note/{{ $note->id }}" class="form-horizontal" role="form">
         {{ method_field('PATCH') }}
         {{ csrf_field() }}
-        <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
-            <label for="content" class="col-md-4 control-label">Edit Note:</label>
+        <div class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">
+            <label for="body" class="col-md-4 control-label">Edit Note:</label>
             <div class="col-md-6">
-                <textarea name="content" id="content" class="form-control" placeholder="Type a note ...">{{ old('content', $note->content) }}</textarea>
-                @if ($errors->has('content'))
+                <textarea name="body" id="body" class="form-control" placeholder="Type a note ...">{{ old('body', $note->body) }}</textarea>
+                @if ($errors->has('body'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('content') }}</strong>
+                        <strong>{{ $errors->first('body') }}</strong>
                     </span>
                 @endif
             </div>
