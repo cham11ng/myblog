@@ -41,6 +41,10 @@ class CardsController extends Controller
      */
     public function storeCard(Request $request)
     {
+        $this->validate($request, [
+            'title'   => 'required|min:2|unique:cards,title'
+        ]);
+
         Card::create([
             'title'    => $request->title,
             'slug'     => str_slug($request->title, '-')
@@ -86,6 +90,7 @@ class CardsController extends Controller
     {
         /*Card::where('slug', '=', $slug)
             ->delete();*/
+
         $card = Card::where('slug', '=', $slug)->first();
 
         $card->delete();
