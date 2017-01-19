@@ -11,12 +11,12 @@
         @forelse ($card->notes as $note)
             <li class="list-group-item animated bounceInDown">
                 <div class="row">
-                    <div class="col-md-9 text-justify">{{ $note->body }}</div>
-                    <div class="col-md-3 text-right">
+                    <div class="col-md-8 text-justify">{{ $note->body }}</div>
+                    <div class="col-md-4 text-right">
                         <form method="POST" action="{{ url('note/'.$note->id.'/delete') }}">
                             {{ method_field('DELETE') }}
                             {{ csrf_field() }}
-                            <em>By: {{ $note->user->username }}&nbsp;</em>
+                            <em>By: {{ $note->user->name }}&nbsp;</em>
                             <a href="{{ url('note/'.$note->id.'/edit') }}"><i class="fa fa-btn fa-edit text-info"></i></a>
                             <button class="button-icon" type="submit"><i class="fa fa-btn fa-trash-o text-danger"></i></button>
                         </form>
