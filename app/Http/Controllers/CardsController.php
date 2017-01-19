@@ -84,6 +84,10 @@ class CardsController extends Controller
      */
     public function updateCard(Request $request, $slug)
     {
+        $this->validate($request, [
+            'title'   => 'required|min:2|unique:cards,title'
+        ]);
+
         Card::where('slug', '=', $slug)
             ->update([
                 'title'    => $request->title,
