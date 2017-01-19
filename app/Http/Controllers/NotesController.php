@@ -13,6 +13,16 @@ use App\Card;
 class NotesController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * CardsController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * @param Request $request
      * @param $slug
      * @return \Illuminate\Http\RedirectResponse
@@ -37,8 +47,8 @@ class NotesController extends Controller
         ]);
 
         $note = new Note($request->all());
-        
-        $card->addNote($note, 1);
+
+        $card->addNote($note);
 
         return back();
     }

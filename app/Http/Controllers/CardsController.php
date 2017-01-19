@@ -12,6 +12,17 @@ use Illuminate\Http\Request;
 class CardsController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * CardsController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        //$this->middleware('auth', ['only' => ['getCards']]);
+    }
+
+    /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * Listing all cards to view
      */
