@@ -50,6 +50,9 @@ class NotesController extends Controller
 
         $card->addNote($note);
 
+        session()->flash('status', 'Note added.');
+        session()->flash('status_level', 'success');
+
         return back();
     }
 
@@ -79,6 +82,9 @@ class NotesController extends Controller
 
         $note->update($request->all());
 
+        session()->flash('status', 'Saved');
+        session()->flash('status_level', 'info');
+
         return back();
     }
 
@@ -89,6 +95,9 @@ class NotesController extends Controller
     public function deleteNote(Note $note)
     {
         $note->delete();
+
+        session()->flash('status', 'Note deleted.');
+        session()->flash('status_level', 'danger');
 
         return back();
     }

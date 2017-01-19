@@ -6,6 +6,11 @@
 @stop
 
 @section('panel-body')
+    @if (session('status'))
+        <div class="alert alert-{{ session('status_level') }}">
+            {{ session('status') }}
+        </div>
+    @endif
     <ul class="list-group card-list">
         @forelse ($cards as $card)
             <li class="list-group-item">

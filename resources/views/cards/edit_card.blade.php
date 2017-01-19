@@ -9,6 +9,11 @@
 @stop
 
 @section('panel-body')
+    @if (session('status'))
+        <div class="alert alert-{{ session('status_level') }}">
+            {{ session('status') }}
+        </div>
+    @endif
     <form method="POST" action="/card/{{ $card->slug }}" class="form-horizontal" role="form">
         {{ method_field('PATCH') }}
         {{ csrf_field() }}

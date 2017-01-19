@@ -61,6 +61,9 @@ class CardsController extends Controller
             'slug'     => str_slug($request->title, '-')
         ]);
 
+        session()->flash('status', $request->title.' card added.');
+        session()->flash('status_level', 'success');
+        //return back()->with('status', 'Card Added');
         return back();
     }
 
@@ -94,6 +97,9 @@ class CardsController extends Controller
                 'slug'     => str_slug($request->title)
             ]);
 
+        session()->flash('status', 'Saved');
+        session()->flash('status_level', 'info');
+
         return redirect('/card/'.str_slug($request->title).'/edit');
     }
 
@@ -110,6 +116,9 @@ class CardsController extends Controller
 
         $card->delete();
         $card->deleteNotes();   // delete all notes of respective card
+
+        session()->flash('status', $card->title.' card deleted and corresponding notes also deleted.');
+        session()->flash('status_level', 'info');
 
         return back();
     }

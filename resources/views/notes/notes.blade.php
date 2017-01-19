@@ -6,6 +6,11 @@
 @stop
 
 @section('panel-body')
+    @if (session('status'))
+        <div class="alert alert-{{ session('status_level') }}">
+            {{ session('status') }}
+        </div>
+    @endif
     <label class="title">List of Notes:</label>
     <ul class="list-group note-list">
         @forelse ($card->notes as $note)
