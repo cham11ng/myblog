@@ -2,7 +2,7 @@
 @section('title', ' | contact')
 @section('panel-heading')
     Contact Me
-@endsection
+@stop
 
 @section('panel-body')
     <form class="form-horizontal" role="form" method="POST">
@@ -54,4 +54,4 @@
             </div>
         </div>
     </form>
-@endsection
+@stop
