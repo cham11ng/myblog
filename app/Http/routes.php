@@ -40,3 +40,7 @@ Route::get('/note/{note}/edit', 'NotesController@editNote');
 Route::patch('/note/{note}', 'NotesController@updateNote');
 
 Route::delete('/note/{note}/delete', 'NotesController@deleteNote');
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
