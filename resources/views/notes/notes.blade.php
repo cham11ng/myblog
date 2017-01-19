@@ -13,6 +13,7 @@
                 <div class="row">
                     <div class="col-md-8 text-justify">{{ $note->body }}</div>
                     <div class="col-md-4 text-right">
+                        @if ($note->user->id == Auth::user()->id)
                         <form method="POST" action="{{ url('note/'.$note->id.'/delete') }}">
                             {{ method_field('DELETE') }}
                             {{ csrf_field() }}
@@ -20,6 +21,9 @@
                             <a href="{{ url('note/'.$note->id.'/edit') }}"><i class="fa fa-btn fa-edit text-info"></i></a>
                             <button class="button-icon" type="submit"><i class="fa fa-btn fa-trash-o text-danger"></i></button>
                         </form>
+                        @else
+                            <em>By: {{ $note->user->name }}&nbsp;</em>
+                        @endif
                     </div>
                 </div>
             </li>
