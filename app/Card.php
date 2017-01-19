@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class Card
@@ -37,9 +38,9 @@ class Card extends Model
      * @param Note $note
      * @return Model
      */
-    public function addNote(Note $note, $userId)
+    public function addNote(Note $note)
     {
-        $note->user_id = $userId;
+        $note->user_id = Auth::id();
         return $this->notes()->save($note);
     }
 
